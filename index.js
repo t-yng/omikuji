@@ -64,6 +64,13 @@
     ];
 
     let fixedOmikujiList = [];
+
+    function preloadPrizeImages() {
+        prizes.forEach((url) => {
+            const img = document.createElement('img');
+            img.src = url;
+        });
+    }
     
     function initOmikuji(index) {
         let text = '';
@@ -122,6 +129,7 @@
     }
 
     function main() {
+        preloadPrizeImages();
         const omikujiShuffler = new OmikujiShuffler();
 
         const startButton = document.querySelector('#start-lottery-button');
