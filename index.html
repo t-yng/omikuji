@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/omikuji.css">
+    <link rel="stylesheet" href="css/index.css">
+    <style>
+    </style>
+</head>
+
+<body class="text-center">
+    <h1 class="title" style="display: none;">Hamee抽選会</h1>
+    <div class="container flex-center-box">
+        <div class="lottery-block">
+            <div class="omikuji-wrappter text-center">
+                <div style="display: inline-block;">
+                    <div class="omikuji omikuji-border">
+                        <div class="omikuji-text omikuji-grid-item flex-center-box"></div>
+                        <div class="omikuji-fortune-text omikuji-grid-item flex-center-box">運勢</div>
+                        <div class="omikuji-fortune omikuji-grid-item flex-center-box"></div>
+                    </div>
+                </div>
+                <div>
+                    <button id="start-lottery-button">抽選スタート</button>
+                    <button id="stop-lottery-button">ストップ</button>
+                </div>
+            </div>
+            <div class="prize" data-prize-index="0">
+                <img src="http://frame-illust.com/fi/wp-content/uploads/2014/11/d183835f9690ca9171b1b0773f657685.png" class="ema-image">
+                <img src="images/L131-01.jpg" class="prize-image">
+            </div>
+        </div>
+    </div>
+    <div id="js-next-prize" class="next-prize right-triangle"></div>
+    <div id="js-prev-prize" class="prev-prize left-triangle" style="display: none;"></div>
+    <script src="index.js"></script>
+</body>
+</html>
