@@ -7,6 +7,7 @@
                 return response.json();
             }).then((json) => {
                 this.omikujiList = json;
+                this.shuffleArray(this.omikujiList);
             });
         }
 
@@ -32,6 +33,15 @@
             this.index += 1;
             if(this.index >= this.omikujiList.length) this.index = 0;
             return this.omikujiList[this.index];
+        }
+
+        shuffleArray(array) {
+            for(var i = array.length - 1; i > 0; i--){
+                var r = Math.floor(Math.random() * (i + 1));
+                var tmp = array[i];
+                array[i] = array[r];
+                array[r] = tmp;
+            }
         }
     }
 
