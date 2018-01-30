@@ -13,14 +13,19 @@
 
 <body class="text-center">
     <h1 class="title" style="display: none;">Hamee抽選会</h1>
-    <div class="container flex-center-box">
-        <div class="lottery-block">
+    <div class="container flex-horizontal-center-box">
+        <div id="js-top-page">
+            <div class="title">Hamee抽選会</div>
+        </div>
+        <div id="js-lotter-block" class="lottery-block" style="display: none;">
             <div class="omikuji-wrappter text-center">
                 <div style="display: inline-block;">
                     <div class="omikuji omikuji-border">
-                        <div class="omikuji-text omikuji-grid-item flex-center-box"></div>
-                        <div class="omikuji-fortune-text omikuji-grid-item flex-center-box">運勢</div>
-                        <div class="omikuji-fortune omikuji-grid-item flex-center-box"></div>
+                        <div class="omikuji-text omikuji-grid-item flex-center-box">内容</div>
+                        <div class="omikuji-number omikuji-grid-item flex-center-box">
+                            <span id="js-omikuji-number-text">X</span>番
+                        </div>
+                        <div class="omikuji-fortune omikuji-grid-item flex-center-box">運勢</div>
                     </div>
                 </div>
                 <div>
@@ -28,12 +33,13 @@
                     <button id="stop-lottery-button">ストップ</button>
                 </div>
             </div>
-            <div class="prize" data-prize-index="0">
+            <div class="prize" data-prize-index="-1">
                 <img src="http://frame-illust.com/fi/wp-content/uploads/2014/11/d183835f9690ca9171b1b0773f657685.png" class="ema-image">
                 <img src="images/L131-01.jpg" class="prize-image">
             </div>
         </div>
     </div>
+
     <div id="js-next-prize" class="next-prize right-triangle"></div>
     <div id="js-prev-prize" class="prev-prize left-triangle" style="display: none;"></div>
     <script src="index.js"></script>

@@ -13,9 +13,9 @@
 
         start() {
             if(this.intervalId !== undefined) return false;
-
             this.intervalId = setInterval(() => {
                 const omikuji = this.getNextOmikuji();
+                document.querySelector('#js-omikuji-number-text').textContent = omikuji.number;
                 document.querySelector('.omikuji-text').textContent = omikuji.text;
                 document.querySelector('.omikuji-fortune').textContent = omikuji.fortune;            
             },80);
@@ -46,31 +46,31 @@
     }
 
     const prizes = [
-        'images/L131-01.jpg',
-        'images/L131-08.jpg',
-        'images/L281-01.jpg',
-        'images/L296-06.jpg',
-        'images/L334-03.jpg',
-        'images/L346-03.jpg',
-        'images/L384-06.jpg',
-        'images/a6205-020.jpg',
-        'images/a6336-016.jpg',
-        'images/a6530-165.jpg',
-        'images/b333-01.jpg',
-        'images/b358-08.jpg',
-        'images/b464-04.jpg',
-        'images/b8051-026.jpg',
-        'images/c2268-089.jpg',
-        'images/c4204-587.jpg',
-        'images/disney.jpg',
-        'images/e063-06.jpg',
-        'images/f142-01.jpg',
-        'images/ice.jpg',
-        'images/k104-09.jpg',
-        'images/k279-01.jpg',
-        'images/kome.jpg',
-        'images/niku.jpg',
-        'images/onsen.jpg',
+        'images/01.jpg',
+        'images/02.jpg',
+        'images/03.jpg',
+        'images/04.jpg',
+        'images/05.jpg',
+        'images/06.jpg',
+        'images/07.jpg',
+        'images/08.jpg',
+        'images/09.jpg',
+        'images/10.jpg',
+        'images/11.jpg',
+        'images/12.jpg',
+        'images/13.jpg',
+        'images/14.jpg',
+        'images/15.jpg',
+        'images/16.jpg',
+        'images/17.jpg',
+        'images/18.jpg',
+        'images/19.jpg',
+        'images/20.jpg',
+        'images/21.jpg',
+        'images/22.jpg',
+        'images/23.jpg',
+        'images/24.jpg',
+        'images/25.jpg'
     ];
 
     let fixedOmikujiList = [];
@@ -83,15 +83,18 @@
     }
     
     function initOmikuji(index) {
-        let text = '';
-        let fortune = '';
+        let number  = 'X';
+        let text    = '良いことがあるかも';
+        let fortune = '運勢';
 
         if(fixedOmikujiList.hasOwnProperty(index)) {
             const omikuji = fixedOmikujiList[index];
-            text = omikuji['text'];
+            number = omikuji['number'];
+            text   = omikuji['text'];
             fortune = omikuji['fortune'];
         }
 
+        document.querySelector('#js-omikuji-number-text').textContent = number;
         document.querySelector('.omikuji-text').textContent = text;
         document.querySelector('.omikuji-fortune').textContent = fortune;
     }
@@ -101,19 +104,21 @@
         const prizeIndex = parseInt(prize.getAttribute('data-prize-index'));
         const nextPrizeIndex = prizeIndex+1;
 
+        if(nextPrizeIndex === 0) {
+            prevPrize.style.display = 'block';
+            document.querySelector('#js-top-page').style.display = 'none';
+            document.querySelector('#js-lotter-block').style.display = 'inherit';            
+        }
+
         if(nextPrizeIndex === (prizes.length - 1)) {
             nextPrize.style.display = 'none';
         }
 
         const prizeImage = prizes[nextPrizeIndex];
         document.querySelector('.prize-image').setAttribute('src', prizeImage);
-        
-        if(nextPrizeIndex === 1) {
-            prevPrize.style.display = 'block';
-        }
 
         prize.setAttribute('data-prize-index', nextPrizeIndex);
-        
+
         return nextPrizeIndex;
     }
 
@@ -122,8 +127,10 @@
         const prizeIndex = parseInt(prize.getAttribute('data-prize-index'));
         const prevPrizeIndex = prizeIndex-1;
 
-        if(prevPrizeIndex === 0) {
+        if(prevPrizeIndex === -1) {
             prevPrize.style.display = 'none';
+            document.querySelector('#js-top-page').style.display = 'inherit';
+            document.querySelector('#js-lotter-block').style.display = 'none';
         }
 
         const prizeImage = prizes[prevPrizeIndex];
