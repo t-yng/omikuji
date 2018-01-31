@@ -9,7 +9,7 @@ body {
 
 .container {
   height: 100%;
-  padding-top: 14%;
+  padding-top: 17%;
   box-sizing: border-box;
 }
 
@@ -17,7 +17,7 @@ body {
   font-size: 100px;
   font-weight: bold;
   position: relative;
-  top: 23%;
+  top: 26%;
 }
 
 .lottery-block {
@@ -49,7 +49,7 @@ body {
   left: 22%;
   object-fit: contain;
   position: absolute;
-  top: 24%;
+  top: 21%;
   width: 69%;
 }
 
@@ -78,13 +78,13 @@ body {
   cursor: pointer;
   opacity: 0.8;
   position: fixed;
-  top: 50%;
+  top: 52%;
 }
 
 .prev-prize {
-  left: 30px;
+  left: 20px;
 }
 
 .next-prize {
-  right: 30px;
+  right: 20px;
 }
